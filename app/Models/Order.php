@@ -27,8 +27,33 @@ class Order extends Model
     {
         return $this->belongsTo(Order::class);
     }
-    public function items()
+    // public function items()
+    // {
+    //     return $this->belongsToMany(Menu::class);
+    // }
+
+    public function order_items()
     {
-        return $this->belongsToMany(Menu::class);
+        return $this->hasMany(MenuOrder::class);
+    }
+
+    public function starters()
+    {
+        return $this->order_items()->where('order_section', 'like', 'starter');
+    }
+
+    public function main_course()
+    {
+        return $this->order_items()->where('order_section', 'like', 'main_course');
+    }
+
+    public function dissert()
+    {
+        return $this->order_items()->where('order_section', 'like', 'dissert');
+    }
+
+    public function package()
+    {
+        return $this->order_items()->where('order_section', 'like', 'package');
     }
 }

@@ -19,7 +19,10 @@ return new class extends Migration
             $table->foreignIdFor(Order::class)->nullable();
             $table->foreignIdFor(Menu::class)->nullable();
             $table->integer('position')->nullable();
-            $table->foreignIdFor(CategoryOrTag::class)->nullable();
+            $table->string('order_section');
+            $table->integer('quantity');
+            $table->timestamps();
+            $table->softDeletes();
         });
     }
 
