@@ -14,7 +14,8 @@ return new class extends Migration
         Schema::create('tables', function (Blueprint $table) {
             $table->id();
             $table->string('name_or_number')->nullable();
-            $table->string('link')->nullable();
+            $table->string('no_of_seats')->nullable();
+            $table->string('status')->nullable();
             //qr-path document model neih a thra ang?
             //is_reserved?
             //other properties?

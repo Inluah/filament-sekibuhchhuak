@@ -16,10 +16,10 @@ return new class extends Migration
     {
         Schema::create('menu_order', function (Blueprint $table) {
             $table->id();
-            $table->foreignIdFor(Order::class);
-            $table->foreignIdFor(Menu::class);
-            $table->integer('position');
-            $table->foreignIdFor(CategoryOrTag::class);
+            $table->foreignIdFor(Order::class)->nullable();
+            $table->foreignIdFor(Menu::class)->nullable();
+            $table->integer('position')->nullable();
+            $table->foreignIdFor(CategoryOrTag::class)->nullable();
         });
     }
 

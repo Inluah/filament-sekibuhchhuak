@@ -22,9 +22,9 @@ return new class extends Migration
             $table->foreignIdFor(User::class)->nullable();
             $table->string('phone')->nullable();
             $table->string('table_id')->nullable();
-            $table->string('menu_id')->nullable();
-            $table->foreignIdFor(Order::class); //parent order, if any
-            $table->string('order_status');
+            $table->foreignIdFor(Order::class)->nullable(); //parent order, if any
+            $table->string('order_status')->nullable();
+            $table->string('ref_no')->nullable();
             $table->decimal('amount')->nullable();
             $table->decimal('paid_amount')->nullable();
             $table->decimal('discount_amount')->nullable();
